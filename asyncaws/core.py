@@ -53,7 +53,7 @@ class AWSRequest(HTTPRequest):
             host=host, amz_date=amz_date)
         signed_headers = 'host;x-amz-date'
         # for GET requests payload is empty
-        payload_hash = hashlib.sha256('').hexdigest()
+        payload_hash = hashlib.sha256(''.encode('utf-8')).hexdigest()
 
         canonical_request = (
             '{method}\n{canonical_uri}\n{canonical_querystring}'
